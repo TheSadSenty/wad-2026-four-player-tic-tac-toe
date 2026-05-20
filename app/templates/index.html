@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four-Player Tic-Tac-Toe Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main class="layout">
+        <section class="hero">
+            <p class="eyebrow">Python backend · 4-player arena · persistent leaderboard</p>
+            <h1>Four-Player Tic-Tac-Toe Arena</h1>
+            <p class="intro">
+                Four players rotate through a 6x6 board. Connect four symbols in any direction to win.
+            </p>
+            <div class="legend" id="legend"></div>
+        </section>
+
+        <section class="panel controls">
+            <h2>Start Match</h2>
+            <form id="player-form" class="player-form">
+                <label>
+                    <span>Player X</span>
+                    <input type="text" name="player" placeholder="Ava" maxlength="20" required>
+                </label>
+                <label>
+                    <span>Player O</span>
+                    <input type="text" name="player" placeholder="Ben" maxlength="20" required>
+                </label>
+                <label>
+                    <span>Player ▽</span>
+                    <input type="text" name="player" placeholder="Cora" maxlength="20" required>
+                </label>
+                <label>
+                    <span>Player ●</span>
+                    <input type="text" name="player" placeholder="Dax" maxlength="20" required>
+                </label>
+                <div class="actions">
+                    <button type="submit" class="primary">New Game</button>
+                    <button type="button" id="reset-button" class="secondary">Rematch</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel board-panel">
+            <div class="board-header">
+                <div>
+                    <h2>Board</h2>
+                    <p id="status-text">Start a new game to begin.</p>
+                </div>
+                <div class="pill">Win Condition: 4 in a row</div>
+            </div>
+            <div id="board" class="board" aria-label="Game board"></div>
+        </section>
+
+        <section class="panel leaderboard-panel">
+            <div class="board-header">
+                <div>
+                    <h2>Rankings</h2>
+                    <p>3 points for a win, 1 point each for a draw.</p>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Pts</th>
+                            <th>W</th>
+                            <th>D</th>
+                            <th>L</th>
+                            <th>Games</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankings-body">
+                        <tr>
+                            <td colspan="6" class="empty-state">No ranked games yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
