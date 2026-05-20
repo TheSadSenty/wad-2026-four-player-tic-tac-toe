@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./instance:/app/instance:z
+    environment:
+      PYTHONUNBUFFERED: "1"
+    restart: unless-stopped
