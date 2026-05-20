@@ -37,9 +37,3 @@ docker compose up --build
 Then open `http://127.0.0.1:8000`.
 
 The image installs dependencies with `uv sync --frozen --no-dev` from `uv.lock`, then runs Gunicorn against the existing `app` module via `app:create_app()`.
-
-## Tests
-
-```bash
-uv run python -m unittest discover -s tests
-```
